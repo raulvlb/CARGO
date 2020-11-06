@@ -138,6 +138,8 @@ function keyPressed() {
   //escape
   if(keyCode == 27 && tela == 2){
     tela = 1;
+    score = 0;
+    servico = 0;
   }
   
   if(keyCode == 27 && tela == 3){
