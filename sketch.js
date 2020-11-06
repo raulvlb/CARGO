@@ -1,4 +1,4 @@
-var tela = 1;
+var tela = 2;
 var largura = 200;
 var altura = 50;
 var xMenu = 150;
@@ -6,15 +6,94 @@ var yMenu1 = 145;
 var yMenu2 = 205;
 var yMenu3 = 265;
 var caixa = 0;
+var score = 0;
+var servico = 0;
+var diaa;
+var mess;
+
+var dia = 0;
+var mes = 0;
 
 var x = 250;
 var y = 480;
 
 function setup() {
   createCanvas(500, 500);
+  dia =random(1,3);
+  mes = random(1,12);
 }
 
 function draw() {
+  //game
+  if (score>=100){
+    dia =random(1,3)
+    mes = random(1,12)
+    score = 0;
+    servico = servico+1;
+  }
+  
+  //dias
+  if(dia.toFixed(0) == 1){
+    diaa = "Domingo";
+  }
+  if(dia.toFixed(0) == 2){
+    diaa = "Segunda";
+  }
+  if(dia.toFixed(0) == 3){
+    diaa = "Terça";
+  }
+  if(dia.toFixed(0) == 4){
+    diaa = "Quarta";
+  }
+  if(dia.toFixed(0) == 5){
+    diaa = "Quinta";
+  }
+  if(dia.toFixed(0) == 6){
+    diaa = "Sexta";
+  }
+  if(dia.toFixed(0) == 7){
+    diaa = "Sábado";
+  }
+  
+  //meses
+  if(mes.toFixed(0) == 1){
+    mess = "Janeiro";
+  }
+  if(mes.toFixed(0) == 2){
+    mess = "Fevereiro";
+  }
+  if(mes.toFixed(0) == 3){
+    mess = "Março";
+  }
+  if(mes.toFixed(0) == 4){
+    mess = "Abril";
+  }
+  if(mes.toFixed(0) == 5){
+    mess = "Maio";
+  }
+  if(mes.toFixed(0) == 6){
+    mess = "Junho";
+  }
+  if(mes.toFixed(0) == 7){
+    mess = "Julho";
+  }
+  if(mes.toFixed(0) == 8){
+    mess = "Agosto";
+  }
+  if(mes.toFixed(0) == 9){
+    mess = "Setembro";
+  }
+  if(mes.toFixed(0) == 10){
+    mess = "Outubro";
+  }
+  if(mes.toFixed(0) == 11){
+    mess = "Novembro";
+  }
+  if(mes.toFixed(0) == 12){
+    mess = "Dezembro";
+  }
+  
+  
   //menu
   if(tela == 1){
     menu();
@@ -44,15 +123,15 @@ function keyPressed() {
   }
   
   //menus
-  if(keyCode == 90 && caixa ==0){
+  if(keyCode == 90 && caixa ==0 && tela == 1){
     tela = 2;
   }
   
-  else if(keyCode == 90 && caixa ==1){
+  else if(keyCode == 90 && caixa ==1 && tela == 1){
     tela = 3;
   }
   
-  else if(keyCode == 90 && caixa ==2){
+  else if(keyCode == 90 && caixa ==2 && tela == 1){
     tela = 4;
   }
   
@@ -147,19 +226,33 @@ function jogo() {
     fill(240);  
     text("precione 'esc'"+"\n"+" para sair", 50, 470);
   
-    text("Cores", 50, 100);
+    text("Dia da"+"\n"+"semana", 50, 100);
   
-    fill('yellow');
-    ellipse(50,120,10,10);
+    fill(70)
+    text(diaa, 50, 150);
+    
+    fill(240)
+    text("Mês"+"\n"+"do ano", 50, 200);
   
-    fill('blue');
-    ellipse(50,140,10,10);
+    fill(70)
+    text(mess, 50, 250);
   
-    fill('red');
-    ellipse(50,160,10,10);
+    // fill('yellow');
+    // ellipse(50,240,10,10);
     
     fill(240);
-    text("Pontos"+"\n"+"0000", 50, 200);
+    text("Pontos"+"\n"+score, 50, 300);
+  
+    fill(240);
+    text("Dias"+"\n"+"passados"+"\n"+servico, 50, 350);
+  
+    // if(keyIsDown(79)){
+    // score = random(ale.toFixed(2));
+    // }
+  
+    if(keyIsDown(79)){
+    score = score + 1;
+    }
 
 }
 function ajuda() {
