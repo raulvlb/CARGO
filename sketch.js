@@ -1,4 +1,4 @@
-var tela = 2;
+var tela = 1;
 var largura = 200;
 var altura = 50;
 var xMenu = 150;
@@ -19,14 +19,14 @@ var y = 480;
 
 function setup() {
   createCanvas(500, 500);
-  dia =random(1,3);
+  dia =random(1,7);
   mes = random(1,12);
 }
 
 function draw() {
   //game
   if (score>=100){
-    dia =random(1,3)
+    dia =random(1,7)
     mes = random(1,12)
     score = 0;
     servico = servico+1;
